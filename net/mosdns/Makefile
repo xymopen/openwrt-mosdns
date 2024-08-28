@@ -8,6 +8,9 @@ PKG_RELEASE:=1
 PKG_BINARY_FILE:=mosdns-linux-$(PKG_ARCH).zip
 PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v$(PKG_VERSION)/$(PKG_INIT_FILE)
 
+PKG_INIT_FILE:=mosdns-init-openwrt
+PKG_INIT_FILE_URL:=https://github.com/IrineSistiana/mosdns/raw/v$(PKG_VERSION)/scripts/openwrt/$(PKG_INIT_FILE)
+
 PKG_LICENSE:=GPL-3.0
 PKG_LICENSE_FILE:=LICENSE
 PKG_MAINTAINER:=Xu Yiming <xuyiming.open@outlook.com>
@@ -23,8 +26,14 @@ define Download/mosdns
 	URL:=$(PKG_BINARY_FILE_URL)
 endef
 
+define Download/mosdns-init
+	FILE:=$(PKG_INIT_FILE)
+	URL:=$(PKG_INIT_FILE_URL)
+endef
+
 define Build/Prepare
 	unzip -q -d $(PKG_BUILD_DIR) $(DL_DIR)/$(PKG_BINARY_FILE)
+	$(CP) $(DL_DIR)/$(PKG_INIT_FILE) $(PKG_BUILD_DIR)/mosdns.init
 endef
 
 define Build/Compile
@@ -49,7 +58,7 @@ define Package/mosdns/install
 		$(1)/usr/bin/
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/mosdns.init \
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mosdns.init \
 		$(1)/etc/init.d/mosdns
 
 	$(INSTALL_DIR) $(1)/etc/mosdns
@@ -58,4 +67,5 @@ define Package/mosdns/install
 endef
 
 $(eval $(call Download,mosdns))
+$(eval $(call Download,mosdns-init))
 $(eval $(call BuildPackage,mosdns))

@@ -6,10 +6,10 @@ PKG_VERSION:=5.3.3
 PKG_RELEASE:=1
 
 PKG_BINARY_FILE:=mosdns-linux-$(PKG_ARCH).zip
-PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v$(PKG_VERSION)/$(PKG_INIT_FILE)
+PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v$(PKG_VERSION)/
 
 PKG_INIT_FILE:=mosdns-init-openwrt
-PKG_INIT_FILE_URL:=https://github.com/IrineSistiana/mosdns/raw/v$(PKG_VERSION)/scripts/openwrt/$(PKG_INIT_FILE)
+PKG_INIT_FILE_URL:=https://github.com/IrineSistiana/mosdns/raw/v$(PKG_VERSION)/scripts/openwrt/
 
 PKG_LICENSE:=GPL-3.0
 PKG_LICENSE_FILE:=LICENSE

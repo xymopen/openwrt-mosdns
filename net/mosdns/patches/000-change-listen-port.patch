@@ -1,0 +1,16 @@
+--- a/config.yaml
++++ b/config.yaml
+@@ -8,11 +8,11 @@ plugins:
+       type: forward
+     - args:
+         entry: forward_google
+-        listen: 127.0.0.1:53
++        listen: 127.0.0.1:5335
+       tag: udp_server
+       type: udp_server
+     - args:
+         entry: forward_google
+-        listen: 127.0.0.1:53
++        listen: 127.0.0.1:5335
+       tag: tcp_server
+       type: tcp_server

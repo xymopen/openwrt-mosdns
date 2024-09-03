@@ -10,6 +10,7 @@ PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v
 
 PKG_INIT_FILE:=mosdns-init-openwrt
 PKG_INIT_FILE_URL:=https://github.com/IrineSistiana/mosdns/raw/v$(PKG_VERSION)/scripts/openwrt/
+PKG_INIT_FILE_HASH:=669d3318c740c1e5181b3637802e094c00499333f67f263372f620811feafcf8
 
 PKG_LICENSE:=GPL-3.0
 PKG_LICENSE_FILE:=LICENSE
@@ -24,11 +25,13 @@ include $(INCLUDE_DIR)/package.mk
 define Download/mosdns
 	FILE:=$(PKG_BINARY_FILE)
 	URL:=$(PKG_BINARY_FILE_URL)
+	HASH:=skip
 endef
 
 define Download/mosdns-init
 	FILE:=$(PKG_INIT_FILE)
 	URL:=$(PKG_INIT_FILE_URL)
+	HASH:=$(PKG_INIT_FILE_HASH)
 endef
 
 define Build/Prepare

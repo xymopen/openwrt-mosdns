@@ -3,7 +3,7 @@ include ./pkg-arch.mk
 
 PKG_NAME:=mosdns
 PKG_VERSION:=5.3.3
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_BINARY_FILE:=mosdns-linux-$(PKG_ARCH).zip
 PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v$(PKG_VERSION)/
@@ -52,7 +52,7 @@ define Package/mosdns
 endef
 
 define Package/mosdns/conffiles
-/etc/mosdns/config.yaml
+/etc/mosdns/
 endef
 
 define Package/mosdns/install

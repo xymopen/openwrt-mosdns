@@ -2,8 +2,8 @@ include $(TOPDIR)/rules.mk
 include ./pkg-arch.mk
 
 PKG_NAME:=mosdns
-PKG_VERSION:=5.3.3
-PKG_RELEASE:=2
+PKG_VERSION:=5.3.4
+PKG_RELEASE:=1
 
 PKG_BINARY_FILE:=mosdns-linux-$(PKG_ARCH).zip
 PKG_BINARY_FILE_URL:=https://github.com/IrineSistiana/mosdns/releases/download/v$(PKG_VERSION)/

@@ -15,11 +15,11 @@ else ifeq ($(ARCH),arm)
 	# see also https://github.com/gcc-mirror/gcc/blob/releases/gcc-8.4.0/gcc/config/arm/arm-cpus.in
 
 	ifeq ($(TARGET_FPU),)
-		PKG_ARCH+=-5
+		PKG_ARCH:=$(PKG_ARCH)-5
 	else ifneq ($(filter $(TARGET_FPU),vfp vfpv2),)
-		PKG_ARCH+=-6
+		PKG_ARCH:=$(PKG_ARCH)-6
 	else
-		PKG_ARCH+=-7
+		PKG_ARCH:=$(PKG_ARCH)-7
 	endif
 else ifeq ($(ARCH),aarch64)
 	PKG_ARCH:=arm64
@@ -27,33 +27,33 @@ else ifeq ($(ARCH),mips)
 	PKG_ARCH:=mips
 
 	ifeq ($(CONFIG_HAS_FPU),y)
-		PKG_ARCH+=-hardfloat
+		PKG_ARCH:=$(PKG_ARCH)-hardfloat
 	else
-		PKG_ARCH+=-softfloat
+		PKG_ARCH:=$(PKG_ARCH)-softfloat
 	endif
 else ifeq ($(ARCH),mipsel)
 	PKG_ARCH:=mipsle
 
 	ifeq ($(CONFIG_HAS_FPU),y)
-		PKG_ARCH+=-hardfloat
+		PKG_ARCH:=$(PKG_ARCH)-hardfloat
 	else
-		PKG_ARCH+=-softfloat
+		PKG_ARCH:=$(PKG_ARCH)-softfloat
 	endif
 else ifeq ($(ARCH),mips64)
 	PKG_ARCH:=mips64
 
 	ifeq ($(CONFIG_HAS_FPU),y)
-		PKG_ARCH+=-hardfloat
+		PKG_ARCH:=$(PKG_ARCH)-hardfloat
 	else
-		PKG_ARCH+=-softfloat
+		PKG_ARCH:=$(PKG_ARCH)-softfloat
 	endif
 else ifeq ($(ARCH),mips64el)
 	PKG_ARCH:=mips64le
 
 	ifeq ($(CONFIG_HAS_FPU),y)
-		PKG_ARCH+=-hardfloat
+		PKG_ARCH:=$(PKG_ARCH)-hardfloat
 	else
-		PKG_ARCH+=-softfloat
+		PKG_ARCH:=$(PKG_ARCH)-softfloat
 	endif
 else ifeq ($(ARCH),powerpc64le)
 	PKG_ARCH:=ppc64le
